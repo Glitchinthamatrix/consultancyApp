@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add Doctor</title>
+	<link rel="stylesheet" href="./../css/tagify.css">
+	<%- include('partials/head.ejs') %>
+</head>
+<body>
+	<% if(error) {%>
+		<% if(errorType === 'Success') { %>
+			<div class="error_container error_container--success">
+				<div class="col--1">
+					<div class="error_container__icon">
+						<i class="fas fa-check-circle"></i>
+					</div>	
+				</div>
+				<div class="col--2">
+					<div class="error_container__title heading-3">
+						Success
+					</div>
+					<span class="para-1 error" id="cancelLogin"><%= error %> <!-- Valid Only for 60 Seconds. --></span>	
+				</div>
+				<div class="col--3">
+					<div class="error_container__icon" id="cross">
+						<i class="fas fa-times"></i>
+					</div>		
+				</div>
+			</div>
+		<% } %>
+		<% if(errorType === 'Failure') { %>
+			<div class="error_container">
+				<div class="col--1">
+					<div class="error_container__icon">
+						<i class="fas fa-times-circle"></i>
+					</div>	
+				</div>
+				<div class="col--2">
+					<div class="error_container__title heading-3">
+						Failure
+					</div>
+					<span class="para-1 error" id="cancelLogin"><%= error %> <!-- Valid Only for 60 Seconds. --></span>	
+				</div>
+				<div class="col--3">
+					<div class="error_container__icon" id="cross">
+						<i class="fas fa-times"></i>
+					</div>		
+				</div>
+			</div>
+		<% } %>
+		<% if(errorType === 'Info') { %>
+			<div class="error_container error_container--info">
+				<div class="col--1">
+					<div class="error_container__icon">
+						<i class="fas fa-info-circle"></i>
+					</div>	
+				</div>
+				<div class="col--2">
+					<div class="error_container__title heading-3">
+						Info
+					</div>
+					<span class="para-1 error" id="cancelLogin"><%= error %> <!-- Valid Only for 60 Seconds. --></span>	
+				</div>
+				<div class="col--3">
+					<div class="error_container__icon" id="cross">
+						<i class="fas fa-times"></i>
+					</div>		
+				</div>
+			</div>
+		<% } %>
+	<% } %>
+	<!-- <sidebar class="admin_sidebar">
+		<div class="cross-sidebar">
+			<i class="fas fa-times"></i>
+		</div>
+		<div class="logo_container">
+			<a href="/admin"><img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg" alt="" class="logo"></a>
+		</div>
+		<div class="menu_container">
+			<ul class="menu">
+				<li class="menu-title para">
+					Medicine
+				</li>
+				<li class="menu-item">
+					<i class="item-icon fas fa-thermometer"></i>
+					<p class="para"><a href="/admin-dashboard">Dashboard</a></p>
+				</li>
+				<li class="menu-item">
+					<i class="item-icon fas fa-stethoscope"></i>
+					<p class="para"><a href="/admin-dashboard">Appointments</a></p>
+				</li>
+				<li class="menu-item">
+					<i class="item-icon fas fa-user-md"></i>
+					<p class="para"><a href="/admin/experts">Doctors</a></p>
+				</li>
+				<li class="menu-item">
+					<i class="item-icon fas fa-user-nurse"></i>
+					<p class="para"><a href="/admin-dashboard">Departments</a></p>
+				</li>
+				<li class="menu-item">
+					<i class="item-icon fas fa-user-injured"></i>
+					<p class="para"><a href="/admin-dashboard">Patients</a></p>
+				</li>	
+				<li class="menu-item">
+					<i class="item-icon fas fa-money-check-alt"></i>
+					<p class="para"><a href="/admin-dashboard">Payments</a></p>
+				</li>	
+
+			</ul>
+		</div>
+	</sidebar>
+	<header class="admin_header">
+		<div class="menu-burger">
+			<i class="fas fa-bars navbar__burger"></i>
+		</div>
+		<div class="bell-icon">
+			<i class="fas fa-bell"></i>
+		</div>
+		<div class="display-picture">
+			<img src="./../assets/femaleDoc.png" alt="">
+			<i class="fas fa-chevron-down"></i>
+		</div>
+	</header> -->
+	
+	<%- include('partials/header.ejs') %>
+	
+	
+	<div class="background-dashboard">
+	<%- include('partials/admin_sidebar.ejs') %>
+	<div class="dashboard_content">
+		<section class="admin_doctors add-doctors">
+		
+				<div class="form_container form_container--add-doctors">
+					<h1 class="form_container__heading">Add Doctor</h1>
+					<form method="POST" action="/add-doctors" class="form_container__form" enctype="multipart/form-data">
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="name">Name</label>
+							<input name="name" type="text" placeholder="Enter Name" class="form_container__form__name" required>
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="gender">Gender</label>
+							<select name="gender"  required id="gender" type="text" class="form_container__form__gender">
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+								<option value="Other">Other</option>
+							</select>
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="dob">Date Of Birth</label>
+							<input type="date" name="dob" placeholder="Enter DOB" class="form_container__form__dob" required>
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="phoneNumber">Phone Number</label>
+							<input name="phoneNumber" type="text" placeholder="Enter Phone Number" class="form_container__form__phone" required>
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="email">Email Address</label>
+							<input name="email" type="email" placeholder="Enter Email" class="form_container__form__email" required>
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="password">Password</label>
+							<input type="password" name="password" placeholder="Enter Password" class="form_container__form__password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" id="passwordField" required>
+							<i class="fas fa-eye fa-eye-slash" id="showPassword"></i>
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="location">Address</label>
+							<input name="location" type="text" placeholder="Enter your Address" class="form_container__form__email" required>
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--city-state  ">
+							<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+								<label for="city">City</label>
+								<input name="city" type="text" id="city" placeholder="Enter City" class="form_container__form__city" required>
+							</div>
+							<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+								<label for="state">State</label>
+								<input name="state" type="text" id="state" placeholder="Enter State" class="form_container__form__state" required >	
+							</div>
+						</div>
+						<!-- <div class="form_container__form__input_field">
+							<input type="file" name="display_picture" class="upload_dp" value="" accept='image/*'>
+						</div> -->
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="description">Describe Yourself</label>
+							<textarea name="description" id="doctor_description" cols="30" rows="7" placeholder="Describe yourself" required></textarea>
+						</div>
+						<div class="upload_display_picture_container">
+							<label for="display_picture">Upload Your Profile Photo</label>
+							<input type="file" name="display_picture" accept="image/*" id="display_picture" class="display_picture_input" required>	
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="achievements">Achievements</label>
+							<input type="text" name="achievements" class="achievements_input" placeholder="Enter your achievements" value="" required>
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="experience">Years Of Experience</label>
+							<input type="number" name="experience" class="form_container__form__phone_number" placeholder="Enter your years of experience" value="" required>
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="qualifications">Qualifications</label>
+							<input type="text" name="qualifications" class="qualifications_input" placeholder="Enter your qualifications" value="" required>
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="awards">Awards (if any)</label>
+							<input type="text" name="awards" class="awards_input" placeholder="Enter Awards (if any)" value="">
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="specializations">Specializations</label>
+							<input type="text" name="specializations" class="specializations_input" placeholder="Enter Specializaion" value="" required>
+						</div>
+						<!-- <div class="form_container__form__input_field form_container__form__input_field--city-state ">
+							<div class="form_container__form__input_field">
+								<label for="start_time">Start Time</label>
+								<input name="startTime" type="time" id="start_time" placeholder="Enter City" class="form_container__form__city" required>
+							</div>
+							<div class="form_container__form__input_field">
+								<label for="end_time">End Time</label>
+								<input name="endTime" type="time" id="end_time" placeholder="Enter State" class="form_container__form__state" required >	
+							</div>
+						</div> -->
+						<!-- <div class="form_container__form__input_field">
+							<label for="slot_duration">Slot Duration</label>
+							<input type="text" name="slotDuration" class="form_container__form__phone_number" value="" required>
+						</div> -->
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="averageFees">Average Fees</label>
+							<input type="number" name="averageFees" class="form_container__form__phone_number" placeholder="Enter your average fees" value="" required>
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="hospitalList">Hospitals</label>
+							<input type="text" name="hospitalList" class="hospital_list_input" placeholder="Enter Hospitals" value="">
+						</div>
+						<div class="form_container__form__input_field form_container__form__input_field--add-doctors">
+							<label for="country">Country</label>
+							<select name="country" id="country" type="text" class="form_container__form__gender" required>
+								<option value="not-selected" selected>Select your Country</option>
+								<option value="India">India</option>
+								<option value="USA">USA</option>
+								<option value="Sri Lanka">Sri Lanka</option>
+							</select>
+						</div>
+						<button type="submit" class="form_container__form__submit">
+							<span class="form_container__form__submit__text">Submit</span>
+							<span class="form_container__form__submit__icon"><i class="fas fa-arrow-right"></i></span>
+						</button>
+					</form>
+				</div>
+			
+		</section>
+	</div>
+	</div>
+	<!-- <a href="/add_doctors"><button class="add_doctors">
+		<i class="fas fa-plus"></i>
+	</button></a> -->
+	<script>
+		const menuItemActive = document.querySelectorAll(`a[href='/${window.location.href.split('/')[3]}']`);
+		menuItemActive[1].parentElement.parentElement.classList.add('menu-item--active');
+		console.log(menuItemActive);
+	</script>
+	<script src="./../tagify.js"></script>
+	<script>
+		const hospitalWhitelist = [];
+		const fetchHospitals = async () => {
+			const hospitals = await fetch('/autoCompleteHospital', {
+				method: 'GET'
+			});
+			const hospitalData = await hospitals.json();
+			console.log(hospitalData);
+			hospitalData.data.forEach(el => {
+				hospitalWhitelist.push(el.name);
+			})
+		}
+		fetchHospitals();
+		console.log(hospitalWhitelist);
+		const specializationsInput = document.querySelector('.specializations_input');
+		const specializationsTagify = new Tagify(specializationsInput, {
+			enforceWhitelist: true,
+			whitelist: ['Family Physician', 'Internal Medicine Physician', 'Pediatrician', 'Obstetrician', 'Gynecologist', 'Surgeon', 'Psychiatrist', 'Cardiologist', 'Dermatologist', 'Endocrinologist', 'Gastroenterologist', 'Infectious Disease Physician', 'Nephrologist', 'Ophthalmologist', 'Otolaryngologist', 'Pulmonologist', 'Neurologist', 'Physician Executive', 'Radiologist', 'Anesthesiologist', 'Oncologist']
+		});
+		const achievements = document.querySelector('.achievements_input');
+		const achievmentsTagify = new Tagify(achievements);
+		const qualifications = document.querySelector('.qualifications_input');
+		const qualificationsTagify = new Tagify(qualifications);
+		const awards = document.querySelector('.awards_input');
+		const awardsTagify = new Tagify(awards);
+		const hospitalInput = document.querySelector('.hospital_list_input');
+		const hospitalInputTagify = new Tagify(hospitalInput, {
+			whitelist: hospitalWhitelist,
+			enforceWhitelist: false
+		});
+
+		const slot_duration = document.querySelector('input[name="slotDuration"]');
+		const slotTagify = new Tagify(slot_duration, {
+			whitelist: ['60 Mins', '45 Mins', '30 Mins', '15 Mins'],
+			mode: 'select',
+			dropdown: {
+				className: 'color-blue',
+				enabled: 1,
+				maxItems: 4,
+				position: 'text',
+				closeOnSelect: true,
+				highlightFirst: true 
+			}
+		});
+
+	</script>
+	<script src="./../index.js">
+	</script>
+	<script src="./../dashboard.js"></script>
+	<script src="./../error.js"></script>
+</body>
+</html>

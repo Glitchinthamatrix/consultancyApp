@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Earna - Consulting Business Template">
+
+    <!-- ========== Page Title ========== -->
+    <title>Bollify - Consulting Agency</title>
+
+    <!-- ========== Favicon Icon ========== -->
+    <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/css/themify-icons.css" rel="stylesheet" />
+    <link href="/assets/css/elegant-icons.css" rel="stylesheet" />
+    <link href="/assets/css/flaticon-set.css" rel="stylesheet" />
+    <link href="/assets/css/magnific-popup.css" rel="stylesheet" />
+    <link href="/assets/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/assets/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="/assets/css/animate.css" rel="stylesheet" />
+    <link href="/assets/css/bootsnav.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/css/responsive.css" rel="stylesheet" />
+</head>
+
+<body class="login-body">
+    <div class="login-body-flex">
+        <header>
+            <%- include('partials/header.ejs') %>
+        </header>
+        <section class="form_container form_container--book">
+            <h1 class="form_container__heading">Book an Appointment</h1>
+            <form action="" class="form_container__form">
+                <div class="form_container__form__input_field form_container__form__input_field--book">
+                    <div class="form_container__form__input_field__container form_container__form__input_field__container--date">
+                        <label for="appointment_date">Select Appointment Date*</label>
+                        <input type="date" name="appointment_date" class="form_container__form__appointment_date" required>
+                    </div>
+                </div>
+                <div class="form_container__form__input_field form_container__form__input_field--book">
+                    <span>Time Interval*</span>
+                    <div class="form_container__form__input_field__container">
+                        <input id="morning" type="radio" name="time-interval" class="form_container__form__time_interval" value="morning" required>
+                        <label for="morning">Morning</label>
+                    </div>
+                    <div class="form_container__form__input_field__container">
+                        <input id="afternoon" type="radio" name="time-interval" class="form_container__form__time_interval" value="afternoon">
+                        <label for="afternoon">Afternoon</label>
+                    </div>
+                    <div class="form_container__form__input_field__container">
+                        <input id="evening" type="radio" name="time-interval" class="form_container__form__time_interval" value="evening">
+                        <label for="evening">Evening</label>
+                    </div>
+                </div>
+                <div class="form_container__form__input_field form_container__form__input_field--book">
+                    <span>Appointment Status / Urgency*</span>
+                    <div class="form_container__form__input_field__container">
+                        <input id="routine" type="radio" name="appointment-status" class="form_container__form__appointment_status" value="routine" required>
+                        <label for="routine">Routine Check-up</label>
+                    </div>
+                    <div class="form_container__form__input_field__container">
+                        <input id="non_urgent" type="radio" name="appointment-status" class="form_container__form__appointment_status" value="non_urgent">
+                        <label for="non_urgent">Non Urgent Check-up</label>
+                    </div>
+                    <div class="form_container__form__input_field__container">
+                        <input id="urgent" type="radio" name="appointment-status" class="form_container__form__appointment_status" value="urgent">
+                        <label for="urgent">Urgent Check-up</label>
+                    </div>
+                    <div class="form_container__form__input_field__container">
+                        <input id="surgical" type="radio" name="appointment-status" class="form_container__form__appointment_status" value="surgical">
+                        <label for="surgical">Surgical Appointment</label>
+                    </div>
+                </div>
+                <div class="form_container__form__input_field form_container__form__input_field--book">
+                    <label for="health_record">Upload Previous Health Record</label>
+                    <input type="file" name="health_record">
+                </div>
+                <div class="form_container__form__input_field form_container__form__input_field--book">
+                    <label for="appointment_details">Appointment Details</label>
+                    <textarea name="appointment_details" rows="5" cols="10"></textarea>
+                </div>
+                <button type="submit" class="form_container__form__submit">
+					<span class="form_container__form__submit__text">Book Appointment</span>
+					<span class="form_container__form__submit__icon"><i class="fas fa-arrow-right"></i></span>
+				</button>
+            </form>
+        </section>
+
+        <section class="copyright">
+            <span>All Rights Reserved &copy; solvent 2020</span>
+        </section>
+    </div>
+</body>
+
+</html>

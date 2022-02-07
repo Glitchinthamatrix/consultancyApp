@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Earna - Consulting Business Template">
+
+    <!-- ========== Page Title ========== -->
+    <title>Bollify - Consulting Agency</title>
+
+    <!-- ========== Favicon Icon ========== -->
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/css/themify-icons.css" rel="stylesheet" />
+    <link href="/assets/css/elegant-icons.css" rel="stylesheet" />
+    <link href="/assets/css/flaticon-set.css" rel="stylesheet" />
+    <link href="/assets/css/magnific-popup.css" rel="stylesheet" />
+    <link href="/assets/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/assets/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="/assets/css/animate.css" rel="stylesheet" />
+    <link href="/assets/css/bootsnav.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/css/responsive.css" rel="stylesheet" />
+    <!-- ========== End Stylesheet ========== -->
+
+</head>
+
+<body style="padding-top:145px">
+    <% if(typeof user=='undefined'|| !user ){ %>
+        <header id="home">
+
+            <div class="container box-nav">
+                <div class="row">
+                    <!-- Start Navigation -->
+                    <nav class="navbar top-less navbar-default navbar-fixed dark bootsnav on no-full nav-box no-background" id="navbar">
+
+                        <!-- Start Top Search -->
+                        <div class="top-search">
+                            <div class="container">
+                                <div class="input-group d-flex flex-row">
+                                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                                    <form action="/experts" method="POST">
+                                        <input type="text" name="consultantType" class="form-control" placeholder="expert in...">
+                                        <input type="text" name="location" class="form-control" placeholder="Location">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </form> <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Top Search -->
+                        <div class="container nav-container">
+
+                            <!-- Start Atribute Navigation -->
+                            <div class="attr-nav">
+                                <ul>
+                                    <li class="search"><a href="#"><i class="ti-search"></i></a></li>
+                                    <li class="side-menu">
+                                        <a href="#">
+                                            <span class="bar-1"></span>
+                                            <span class="bar-2"></span>
+                                            <span class="bar-3"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End Atribute Navigation -->
+
+                            <!-- Start Header Navigation -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                <a class="navbar-brand" href="/">
+                                    <img src="../assets/img/logo.png" class="logo" alt="Logo">
+                                </a>
+                            </div>
+                            <!-- End Header Navigation -->
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="navbar-menu">
+                                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                                    <li class="">
+                                        <a href="/" class="dropdown-toggle active" data-toggle="dropdown">Home</a>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="/experts" class="dropdown-toggle" data-toggle="dropdown">Experts</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/about" class="dropdown-toggle" data-toggle="dropdown">About Us</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/contact-us" class="dropdown-toggle" data-toggle="dropdown">Contact Us</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/email-login" class="dropdown-toggle" data-toggle="dropdown">Login</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                        </div>
+
+                        <!-- Start Side Menu -->
+                        <div class="side">
+                            <a href="#" class="close-side"><i class="icon_close"></i></a>
+                            <div class="widget">
+                                <img style="width:80px; height:100px" src="../assets/img/logo.png" alt="Logo">
+                                <p>
+                                    Arrived compass prepare an on as. Reasonable particular on my it in sympathize. Size now easy eat hand how. Unwilling he departure elsewhere dejection at. Heart large seems may purse means few blind.
+                                </p>
+                            </div>
+                            <div class="widget address">
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <div class="content">
+                                                <p>Address</p>
+                                                <strong>California, TX 70240</strong>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content">
+                                                <p>Email</p>
+                                                <strong>support@solvent.com</strong>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content">
+                                                <p>Contact</p>
+                                                <strong>+44-20-7328-4499</strong>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="widget newsletter">
+                                <h4 class="title">Get Subscribed!</h4>
+                                <form action="#">
+                                    <div class="input-group stylish-input-group">
+                                        <input type="email" placeholder="Enter your e-mail" class="form-control" name="email">
+                                        <span class="input-group-addon">
+                                            <button type="submit">
+                                                <i class="arrow_right"></i>
+                                            </button>  
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="widget social">
+                                <ul class="link">
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Side Menu -->
+                    </nav>
+                    <!-- End Navigation -->
+                </div>
+            </div>
+
+        </header>
+        <% }else if(typeof user !== 'undefined' && user.role==='user'){ %>
+            <header id="home">
+
+                <div class="container box-nav">
+                    <div class="row">
+                        <!-- Start Navigation -->
+                        <nav class="navbar top-less navbar-default navbar-fixed dark bootsnav on no-full nav-box no-background" id="navbar">
+
+                            <!-- Start Top Search -->
+                            <div class="top-search">
+                                <div class="container">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                                        <form action="/experts" method="POST">
+                                            <input type="text" name="consultantType" class="form-control" placeholder="expert in...">
+                                            <input type="text" name="location" class="form-control" placeholder="Location">
+                                            <button type="submit" class="btn btn-success">Submit</button>
+                                        </form> <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Top Search -->
+
+                            <div class="container nav-container">
+
+                                <!-- Start Atribute Navigation -->
+                                <div class="attr-nav">
+                                    <ul>
+                                        <li class="search"><a href="#"><i class="ti-search"></i></a></li>
+                                        <li class="side-menu">
+                                            <a href="#">
+                                                <span class="bar-1"></span>
+                                                <span class="bar-2"></span>
+                                                <span class="bar-3"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- End Atribute Navigation -->
+
+                                <!-- Start Header Navigation -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                    <a class="navbar-brand" href="/">
+                                        <img src="../assets/img/logo.png" class="logo" alt="Logo">
+                                    </a>
+                                </div>
+                                <!-- End Header Navigation -->
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="navbar-menu">
+                                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                                        <li class="">
+                                            <a href="/" class="dropdown-toggle active" data-toggle="dropdown">Home</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/experts" class="dropdown-toggle" data-toggle="dropdown">Experts</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/about" class="dropdown-toggle" data-toggle="dropdown">About</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/user-dashboard-appointments" class="dropdown-toggle" data-toggle="dropdown">My appointments</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/settings" class="dropdown-toggle" data-toggle="dropdown">Settings</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/contact-us" class="dropdown-toggle" data-toggle="dropdown">Contact Us</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/user-profile" class="dropdown-toggle" data-toggle="dropdown">Profile</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/logout" class="dropdown-toggle" data-toggle="dropdown">Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- /.navbar-collapse -->
+                            </div>
+
+                            <!-- Start Side Menu -->
+                            <div class="side">
+                                <a href="#" class="close-side"><i class="icon_close"></i></a>
+                                <div class="widget">
+                                    <img style="width:80px; height:100px" src="../assets/img/logo.png" alt="Logo">
+                                    <p>
+                                        Arrived compass prepare an on as. Reasonable particular on my it in sympathize. Size now easy eat hand how. Unwilling he departure elsewhere dejection at. Heart large seems may purse means few blind.
+                                    </p>
+                                </div>
+                                <div class="widget address">
+                                    <div>
+                                        <ul>
+                                            <li>
+                                                <div class="content">
+                                                    <p>Address</p>
+                                                    <strong>California, TX 70240</strong>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="content">
+                                                    <p>Email</p>
+                                                    <strong>support@solvent.com</strong>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="content">
+                                                    <p>Contact</p>
+                                                    <strong>+44-20-7328-4499</strong>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="widget newsletter">
+                                    <h4 class="title">Get Subscribed!</h4>
+                                    <form action="#">
+                                        <div class="input-group stylish-input-group">
+                                            <input type="email" placeholder="Enter your e-mail" class="form-control" name="email">
+                                            <span class="input-group-addon">
+                                            <button type="submit">
+                                                <i class="arrow_right"></i>
+                                            </button>  
+                                        </span>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="widget social">
+                                    <ul class="link">
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Side Menu -->
+                        </nav>
+                        <!-- End Navigation -->
+                    </div>
+                </div>
+
+            </header>
+            <% }else if(typeof user !=='undefined' && user.role==='doctor'){ %>
+                <header id="home">
+
+                    <div class="container box-nav">
+                        <div class="row">
+                            <!-- Start Navigation -->
+                            <nav class="navbar top-less navbar-default navbar-fixed dark bootsnav on no-full nav-box no-background" id="navbar">
+
+                                <!-- Start Top Search -->
+                                <div class="top-search">
+                                    <div class="container">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                                            <form action="/experts" method="POST">
+                                                <input type="text" name="consultantType" class="form-control" placeholder="expert in...">
+                                                <input type="text" name="location" class="form-control" placeholder="Location">
+                                                <button type="submit" class="btn btn-success">Submit</button>
+                                            </form> <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Top Search -->
+
+                                <div class="container nav-container">
+
+                                    <!-- Start Atribute Navigation -->
+                                    <div class="attr-nav">
+                                        <ul>
+                                            <li class="search"><a href="#"><i class="ti-search"></i></a></li>
+                                            <li class="side-menu">
+                                                <a href="#">
+                                                    <span class="bar-1"></span>
+                                                    <span class="bar-2"></span>
+                                                    <span class="bar-3"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- End Atribute Navigation -->
+
+                                    <!-- Start Header Navigation -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                        <a class="navbar-brand" href="/">
+                                            <img src="../assets/img/logo.png" class="logo" alt="Logo">
+                                        </a>
+                                    </div>
+                                    <!-- End Header Navigation -->
+
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
+                                    <div class="collapse navbar-collapse" id="navbar-menu">
+                                        <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                                            <li class="">
+                                                <a href="/edit-profile-expert" class="dropdown-toggle" data-toggle="dropdown">Profile</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/experts" class="dropdown-toggle" data-toggle="dropdown">Experts</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/expert-dashboard" class="dropdown-toggle" data-toggle="dropdown">Appointments</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/schedule-appointment" class="dropdown-toggle" data-toggle="dropdown">Schedule appointments</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/settings" class="dropdown-toggle" data-toggle="dropdown">Settings</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/contact-us" class="dropdown-toggle" data-toggle="dropdown">Contact Us</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/logout" class="dropdown-toggle" data-toggle="dropdown">Logout</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.navbar-collapse -->
+                                </div>
+
+                                <!-- Start Side Menu -->
+                                <div class="side">
+                                    <a href="#" class="close-side"><i class="icon_close"></i></a>
+                                    <div class="widget">
+                                        <img style="width:80px; height:100px" src="../assets/img/logo.png" alt="Logo">
+                                        <p>
+                                            Arrived compass prepare an on as. Reasonable particular on my it in sympathize. Size now easy eat hand how. Unwilling he departure elsewhere dejection at. Heart large seems may purse means few blind.
+                                        </p>
+                                    </div>
+                                    <div class="widget address">
+                                        <div>
+                                            <ul>
+                                                <li>
+                                                    <div class="content">
+                                                        <p>Address</p>
+                                                        <strong>California, TX 70240</strong>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="content">
+                                                        <p>Email</p>
+                                                        <strong>support@solvent.com</strong>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="content">
+                                                        <p>Contact</p>
+                                                        <strong>+44-20-7328-4499</strong>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="widget newsletter">
+                                        <h4 class="title">Get Subscribed!</h4>
+                                        <form action="#">
+                                            <div class="input-group stylish-input-group">
+                                                <input type="email" placeholder="Enter your e-mail" class="form-control" name="email">
+                                                <span class="input-group-addon">
+                                            <button type="submit">
+                                                <i class="arrow_right"></i>
+                                            </button>  
+                                        </span>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="widget social">
+                                        <ul class="link">
+                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End Side Menu -->
+                            </nav>
+                            <!-- End Navigation -->
+                        </div>
+                    </div>
+
+                </header>
+                <% }else if(typeof user !=='undefined' && user.role==='admin'){%>
+                    <header id="home">
+
+                        <div class="container box-nav">
+                            <div class="row">
+                                <!-- Start Navigation -->
+                                <nav class="navbar top-less navbar-default navbar-fixed dark bootsnav on no-full nav-box no-background" id="navbar">
+
+                                    <!-- Start Top Search -->
+                                    <div class="top-search">
+                                        <div class="container">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                                                <input type="text" class="form-control" placeholder="Search">
+                                                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Top Search -->
+
+                                    <div class="container nav-container">
+
+                                        <!-- Start Atribute Navigation -->
+                                        <div class="attr-nav">
+                                            <ul>
+                                                <li class="search"><a href="#"><i class="ti-search"></i></a></li>
+                                                <li class="side-menu">
+                                                    <a href="#">
+                                                        <span class="bar-1"></span>
+                                                        <span class="bar-2"></span>
+                                                        <span class="bar-3"></span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- End Atribute Navigation -->
+
+                                        <!-- Start Header Navigation -->
+                                        <div class="navbar-header">
+                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                            <a class="navbar-brand" href="/">
+                                                <img src="../assets/img/logo.png" class="logo" alt="Logo">
+                                            </a>
+                                        </div>
+                                        <!-- End Header Navigation -->
+
+                                        <!-- Collect the nav links, forms, and other content for toggling -->
+                                        <div class="collapse navbar-collapse" id="navbar-menu">
+                                            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                                                <li class="">
+                                                    <a href="/admin" class="dropdown-toggle active" data-toggle="dropdown">Appointments</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="/admin-experts" class="dropdown-toggle active" data-toggle="dropdown">Consultants</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="/admin-users" class="dropdown-toggle active" data-toggle="dropdown">Users</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="/addCateogry" class="dropdown-toggle active" data-toggle="dropdown">Cateogries</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="/settings" class="dropdown-toggle active" data-toggle="dropdown">Settings</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="/logout" class="dropdown-toggle active" data-toggle="dropdown">Logout</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.navbar-collapse -->
+                                    </div>
+
+                                    <!-- Start Side Menu -->
+                                    <div class="side">
+                                        <a href="#" class="close-side"><i class="icon_close"></i></a>
+                                        <div class="widget">
+                                            <img style="width:80px; height:100px" src="../assets/img/logo.png" alt="Logo">
+                                            <p>
+                                                Arrived compass prepare an on as. Reasonable particular on my it in sympathize. Size now easy eat hand how. Unwilling he departure elsewhere dejection at. Heart large seems may purse means few blind.
+                                            </p>
+                                        </div>
+                                        <div class="widget address">
+                                            <div>
+                                                <ul>
+                                                    <li>
+                                                        <div class="content">
+                                                            <p>Address</p>
+                                                            <strong>California, TX 70240</strong>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="content">
+                                                            <p>Email</p>
+                                                            <strong>support@solvent.com</strong>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="content">
+                                                            <p>Contact</p>
+                                                            <strong>+44-20-7328-4499</strong>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="widget newsletter">
+                                            <h4 class="title">Get Subscribed!</h4>
+                                            <form action="#">
+                                                <div class="input-group stylish-input-group">
+                                                    <input type="email" placeholder="Enter your e-mail" class="form-control" name="email">
+                                                    <span class="input-group-addon">
+                                                <button type="submit">
+                                                    <i class="arrow_right"></i>
+                                                </button>  
+                                            </span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="widget social">
+                                            <ul class="link">
+                                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- End Side Menu -->
+                                </nav>
+                                <!-- End Navigation -->
+                            </div>
+                        </div>
+
+                    </header>
+                    <% } %>
+                        <div class="card text-center">
+                            <div class="card-title card-header text-center">
+                                <b>Appointment Booked</b>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Appointment ID:
+                                    <%= appointment._id %>
+                                </h5>
+                                <h5 class="card-title">With consultant:
+                                    <%= doctor.name %>
+                                </h5>
+                                <h5 class="card-title">At:
+                                    <%= appointmentDate %>;
+                                        <%= subSlot.startTime %>
+                                </h5>
+
+                                <div class="d-flex flex-row justify-content-center">
+                                    <button onclick="popupCancelAppointment(this)" class="mr-1 appointment_booked--options appointment_booked--cancel btn btn-danger" data-appointment="<%= appointment._id %>">
+                    Cancel Appointment
+                </button>
+                                    <a class="ml-1" href="/reschedule-appointment/<%= appointment._id %>"><button class="btn btn-light appointment_booked--options appointment_booked--reschedule">
+                    Reschedule Appointment
+                </button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--popup-->
+
+
+                        <div class="change_phone_number_form_container cancel_appointment_form_container d-none">
+                            <div class="form_container__form change_phone_number cancel_appointment">
+                                <h1 class="form_container__heading">Are you sure?</h1>
+                                <div class="cancel_appointment_options_container d-flex flex-row justify-content-center">
+                                    <div class="cancel_appointment_options cancel_appointment_options--cancel mr-2">
+                                        <button class="btn btn-sm btn-danger" onclick="cancelAppointment(this)">Yes</button>
+                                    </div>
+                                    <div class="cancel_appointment_options ml-2">
+                                        <button class="btn btn-sm btn-primary" onclick="popupCancelAppointment(this)">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script src="../assets/js/jquery-3.6.0.min.js"></script>
+                        <script src="../assets/js/popper.min.js"></script>
+                        <script src="../assets/js/bootstrap.min.js"></script>
+                        <script src="../assets/js/jquery.appear.js"></script>
+                        <script src="../assets/js/jquery.easing.min.js"></script>
+                        <script src="../assets/js/jquery.magnific-popup.min.js"></script>
+                        <script src="../assets/js/modernizr.custom.13711.js"></script>
+                        <script src="../assets/js/owl.carousel.min.js"></script>
+                        <script src="../assets/js/wow.min.js"></script>
+                        <script src="../assets/js/progress-bar.min.js"></script>
+                        <script src="../assets/js/isotope.pkgd.min.js"></script>
+                        <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
+                        <script src="../assets/js/count-to.js"></script>
+                        <script src="../assets/js/YTPlayer.min.js"></script>
+                        <script src="../assets/js/bootsnav.js"></script>
+                        <script src="../assets/js/main.js"></script>
+</body>
+<script>
+    async function cancelAppointment(button) {
+        const res = await fetch(`/appointment-cancel/${button.dataset.appointment}`, {
+            method: 'POST'
+        });
+        alert('Cancelled');
+        window.location = "/user-dashboard-appointments";
+    }
+
+    function popupCancelAppointment(button) {
+        const popCancel = document.querySelector('.cancel_appointment_form_container');
+        popCancel.classList.toggle('d-none');
+        console.log(Array.from(popCancel.classList).indexOf('d-none'));
+        if (Array.from(popCancel.classList).indexOf('d-none') === -1) {
+            popCancel.querySelector('.cancel_appointment_options--cancel').children[0].dataset.appointment = button.dataset.appointment;
+        }
+    }
+</script>
+<script src="/index.js"></script>
+
+</html>

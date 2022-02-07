@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Book An Appointment</title>
+    <%- include('partials/head.ejs') %>
+        <!-- <link rel="stylesheet" href="./../css/main.css"> -->
+</head>
+
+<body class="login-body">
+    <div class="login-body-flex">
+        <header>
+            <%- include('partials/header.ejs') %>
+        </header>
+        <section class="appointment-page">
+            <div class="appointment__col--1">
+                <div class="appointment_details">
+                    <div class="appointment_type">
+                        In Clinic Appointment
+                    </div>
+                    <div class="appointment_schedule">
+                        <div class="appointment_date_and_time">
+                            <div class="appointment_date">
+                                <i class="far fa-calender-alt"></i>
+                                <span>On</span>
+                                <span><%= appointmentDate %></span>
+                            </div>
+                            <div class="appointment_time">
+                                <i class="fas fa-clock"></i>
+                                <span>At</span>
+                                <span><%= subslot.subSlots.startTime %></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appointment_doctor_details">
+                        <div class="appointment_doctor_details__info_card">
+                            <div class="doctor_display_picture_container">
+                                <img src="/profile/<%= doctor.display_picture %>" alt="">
+                            </div>
+                            <div class="doctor_info">
+                                <div class="doctor_name">
+                                    <%= doctor.name %>
+                                </div>
+                                <div class="doctor_qualifications">
+                                    <% for(let i = 0; i < doctor.doctor.qualifications.length; i++) { %>
+                                        <span><%= doctor.doctor.qualifications[i] %></span>
+                                        <% } %>
+                                </div>
+                                <div class="doctor_specializations">
+                                    <% for(let i = 0; i < doctor.doctor.specializations.length; i++) { %>
+                                        <span><%= doctor.doctor.specializations[i] %></span>
+                                        <span>,<span>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appointment_hospital_details display_none">
+                        <div class="appointment_hospital_details_info_card">
+                            <div class="hospital_display_picture_container">
+                                <img src="./../public/uploads/users/default-user.png" alt="">
+                            </div>
+                            <div class="hospital_info">
+                                <div class="hospital_name">
+                                    Dr. Dhananjay Bhosle
+                                </div>
+                                <div class="hospital_address">
+                                    <span>Sahyadri Nagar, Charkop, Kandivali West</span>
+                                </div>
+                                <div class="hospital_get_directions">
+                                    <a href="">Get Directions</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+            <div class="appointment__col--2">
+                <div class="appointment_form">
+                    <div class="appointment_form_title">
+                        Cancel Appointment
+                    </div>
+                    <div class="appointment_form_patient">
+                        <div id="appointment_form" method="POST">
+                            <div class="appointment_booked_details">
+                                <h4 class="heading-4">Appointment Details</h4>
+                                <div class="appointment_booked_detail_container">
+                                    <div class="appointment_booked_detail_heading">
+                                        Patient Name
+                                    </div>
+                                    <div class="appointment_booked_detail">
+                                        <%= patient.name %>
+                                    </div>
+                                </div>
+                                <div class="appointment_booked_detail_container">
+                                    <div class="appointment_booked_detail_heading">
+                                        Phone Number
+                                    </div>
+                                    <div class="appointment_booked_detail">
+                                        <%= patient.phoneNumber %>
+                                    </div>
+                                </div>
+                                <div class="appointment_booked_detail_container appointment_booked_detail_container--buttons">
+                                    <% if(typeof error!="undefined" && error=='Appointment Cancelled'){ %>
+                                        <h4 class="heading-4">
+                                            <%= error %>
+                                        </h4>
+                                        <% }else{ %>
+                                            <h4 class="heading-4">Are you sure? You want to cancel this appointment?</h4>
+                                            <button class="appointment_booked--options appointment_booked--cancel" data-appointment="<%= appointment._id %>" onclick="cancelAppointment(this)">
+                                            Yes
+                                        </button>
+                                            <button class="appointment_booked--options appointment_booked--reschedule" onclick="userAppointmentDashboard()">
+                                            No
+                                        </button>
+                                            <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="copyright">
+            <span>All Rights Reserved &copy; solvent 2020</span>
+        </section>
+        <script>
+            async function cancelAppointment(button) {
+                console.log(button.dataset.appointment);
+                const res = await fetch(`/appointment-cancel/${button.dataset.appointment}`, {
+                    method: 'POST'
+                });
+                console.log(res);
+                window.location.href = res.url;
+            }
+
+            async function userAppointmentDashboard() {
+                const res = await fetch('/appointment-cancel/', {
+                    method: 'POST'
+                });
+                window.location.href = res.url;
+            }
+        </script>
+        <!-- <script>
+            const currentUserRadio = document.querySelector('input[value="current_user"]');
+            const someoneElseRadio = document.querySelector('input[value="someone_else"]');
+            const currentUserForm = document.querySelector('.current_user_form');
+            const someoneElseForm = document.querySelector('.someone_else_form');
+            const current_name = document.querySelector('input[name="current_user_name"]');
+            const current_phone = document.querySelector('input[name="current_user_phoneNumber"]');
+            const current_email = document.querySelector('input[name="current_user_email"]');
+
+            const someone_name = document.querySelector('input[name="someone_name"]');
+            const someone_phone = document.querySelector('input[name="someone_phoneNumber"]');
+            const someone_email = document.querySelector('input[name="someone_email"]');
+
+
+            someoneElseForm.style.display = 'none';
+            currentUserRadio.addEventListener('click', () => {
+                    currentUserForm.style.display = 'flex';
+                    someoneElseForm.style.display = 'none';
+                    current_name.required = 'true';
+                    current_phone.required = 'true';
+                    current_email.required = 'true';
+                    someone_name.removeAttribute('required');
+                    someone_email.removeAttribute('required');
+                    someone_phone.removeAttribute('required');
+            });
+            someoneElseRadio.addEventListener('click', () => {
+                    currentUserForm.style.display = 'none';
+                    someoneElseForm.style.display = 'flex';
+                    someone_name.required = 'true';
+                    someone_email.required = 'true';
+                    someone_phone.required = 'true';
+                    current_name.removeAttribute('required');
+                    current_phone.removeAttribute('required');
+                    current_email.removeAttribute('required');
+            })
+        </script> -->
+        <script>
+        </script>
+        <script src="/index.js"></script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= user.name %>
+    </title>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<body class="user-dashboard">
+
+    <% if(error) {%>
+        <% if(errorType === 'Success') { %>
+            <div class="error_container error_container--success">
+                <div class="col--1">
+                    <div class="error_container__icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+                <div class="col--2">
+                    <div class="error_container__title heading-3">
+                        Success
+                    </div>
+                    <span class="para-1 error" id="cancelLogin"><%= error %> <!-- Valid Only for 60 Seconds. --></span>
+                </div>
+                <div class="col--3">
+                    <div class="error_container__icon" id="cross">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+                <% if(errorType === 'Failure') { %>
+                    <div class="error_container">
+                        <div class="col--1">
+                            <div class="error_container__icon">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                        </div>
+                        <div class="col--2">
+                            <div class="error_container__title heading-3">
+                                Failure
+                            </div>
+                            <span class="para-1 error" id="cancelLogin"><%= error %> <!-- Valid Only for 60 Seconds. --></span>
+                        </div>
+                        <div class="col--3">
+                            <div class="error_container__icon" id="cross">
+                                <i class="fas fa-times"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                        <% if(errorType === 'Info') { %>
+                            <div class="error_container error_container--info">
+                                <div class="col--1">
+                                    <div class="error_container__icon">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                </div>
+                                <div class="col--2">
+                                    <div class="error_container__title heading-3">
+                                        Info
+                                    </div>
+                                    <span class="para-1 error" id="cancelLogin"><%= error %> <!-- Valid Only for 60 Seconds. --></span>
+                                </div>
+                                <div class="col--3">
+                                    <div class="error_container__icon" id="cross">
+                                        <i class="fas fa-times"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                                <% } %>
+
+
+
+                                    <%- include('partials/header.ejs') %>
+                                        <!-- <section class="edit_profile">
+		<form action="/save-changes" id="edit-profile" method="POST" enctype="multipart/form-data">
+		<div class="edit_profile_container">
+			<div class="save_button">
+				<button type="submit" form="edit-profile">
+					<span>
+						Save Changes
+					</span>
+				</button>
+			</div>
+			<div class="photo_and_name">
+				<div class="edit_profile_photo">
+					<div class="upload_photo_image_container">
+						<img src="<%= user.display_picture ? user.display_picture : 'public/uploads/users/user.jpeg'  %>" alt="">
+					</div>
+					<div class="upload_image_container">
+						<label for="display_picture">Upload Your Profile Photo</label>
+						<input type="file" name="display_picture" accept="image/*" id="display_picture">	
+					</div>
+				</div>
+				<div class="edit_name">
+					<label for="name">Name</label>
+					<input type="text" name="name" value="<%= user.name %>" placeholder="Enter your name" required>
+				</div>
+			</div>
+			<div class="edit_other_details">
+				<div class="edit_field">
+					<label for="phoneNumber">Phone Number</label>
+					<input type="text" name="phoneNumber" value="<%= user.phoneNumber %>" placeholder="Enter your phone number" required>	
+				</div>
+				<div class="edit_field">
+					<label for="email">Email</label>
+					<input type="email" name="email" value="<%= user.email %>" placeholder="Enter your email" required>			
+				</div>
+				<div class="edit_field">
+					<label for="gender">Gender</label>
+					<select data-selected="" required name="gender" id="gender" type="text" class="form_container__form__gender">
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+						<option value="Other">Other</option>
+					</select>
+				</div>
+				<div class="edit_field">
+					<label for="dob">DOB</label>
+					<input type="date" name="dob" value="<%= user.dob.toString().split('T')[0] %>" placeholder="DOB">			
+				</div>
+				<div class="edit_field">
+					<label for="bloodGroup">Blood Group</label>
+					<select name="bloodGroup" id="bloodGroup" type="text" class="form_container__form__gender">
+						<option value=undefined>Select your Blood Group</option>
+						<option value="O+">O+</option>
+						<option value="O-">O-</option>
+						<option value="A+">A+</option>
+						<option value="A-">A-</option>
+						<option value="B+">B+</option>
+						<option value="B-">B-</option>
+						<option value="AB+">AB+</option>
+						<option value="AB-">AB-</option>
+					</select>
+				</div>
+				<div class="edit_field">
+					<label for="timeZone">Time Zone</label>
+					<select name="timeZone" id="timezone" type="text" class="form_container__form__gender">
+						<option value=undefined>Select your Time Zone</option>
+						<option value="Kolkata">Asia/Kolkata</option>
+						<option value="Karachi">Asia/Karachi</option>
+						<option value="Bogota">America/Bogota</option>
+						<option value="Los Angles">America/Los Angles</option>
+					</select>
+				</div> -->
+                                        <!-- <label for="dob">DOB</label>
+				<input type="date" name="dob" placeholder="Enter DOB" class="form_container__form__dob"> -->
+
+
+
+                                        <!-- </div>
+			<div class="edit_address">
+				<div class="edit_field">
+					<label for="location">Location</label>
+					<input type="text" name="location" value="<%= user.location %>">	
+				</div>
+				<div class="edit_field">
+					<label for="state">State</label>
+					<input type="text" name="state" value="<%= user.state %>">	
+				</div>
+				<div class="edit_field">
+					<label for="country">Country</label>
+					<select name="country" id="country" type="text" class="form_container__form__gender">
+						<option value="India">India</option>
+						<option value="USA">USA</option>
+						<option value="Other">Sri Lanka</option>
+					</select>	
+				</div>
+			</div>
+		</div>
+	</form>
+	</section> -->
+
+                                        <div class="background-dashboard">
+
+                                            <%- include('partials/admin_sidebar.ejs') %>
+                                                <div class="dashboard_content">
+                                                    <section class="edit_profile edit_profile--doctor">
+                                                        <form action="/save-changes/?curr_display_picture=" id="edit-profile" method="POST" enctype="multipart/form-data">
+                                                            <div class="edit_profile_container">
+                                                                <div class="edit_profile_heading edit_profile_heading--edit_profile">
+                                                                    <h4 class="heading-4">Account</h4>
+                                                                    <div class="save_button">
+                                                                        <button type="submit" form="edit-profile">
+							<span>
+								Save Changes
+							</span>
+						</button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="photo_and_name">
+                                                                    <div class="edit_profile_photo">
+                                                                        <div class="upload_photo_image_container">
+                                                                            <img src="<%= user.display_picture ? user.display_picture : 'public/uploads/users/default-user.png'  %>" alt="">
+                                                                        </div>
+                                                                        <div class="upload_image_container">
+                                                                            <span>Profile Picture</span>
+                                                                            <% if(user.role==='doctor'){ %>
+                                                                                <label for="display_picture">Upload Photo</label>
+                                                                                <input type="file" name="display_picture" accept="image/*" id="display_picture">
+                                                                                <% } %>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="edit_name">
+                                                                        <label for="name">Name</label>
+                                                                        <input type="text" id="name" name="name" value="<%= user.name %>" placeholder="Enter your name" required>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="edit_other_details">
+                                                                    <div class="edit_field">
+                                                                        <div class="edit_phone_number">
+                                                                            <label for="phoneNumber">Phone Number</label>
+                                                                            <span id="edit_phone_number">Edit Number</span>
+                                                                        </div>
+                                                                        <input type="text" name="phoneNumber" value="<%= user.phoneNumber %>" placeholder="Enter your phone number" required>
+                                                                    </div>
+                                                                    <div class="edit_field">
+                                                                        <label for="email">Email</label>
+                                                                        <input type="email" name="email" value="<%= user.email %>" placeholder="Enter your email" required>
+                                                                    </div>
+                                                                    <div class="edit_field">
+                                                                        <label for="gender">Gender</label>
+                                                                        <select data-selected="" required name="gender" id="gender" type="text" class="form_container__form__gender">
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+							<option value="Other">Other</option>
+						</select>
+                                                                    </div>
+                                                                    <div class="edit_field">
+                                                                        <label for="dob">DOB</label>
+                                                                        <input required type="date" name="dob" value="<%= user.dob.toString().split('T')[0] %>" placeholder="DOB">
+                                                                    </div>
+                                                                    <div class="edit_field">
+                                                                        <label for="bloodGroup">Blood Group</label>
+                                                                        <select name="bloodGroup" id="bloodGroup" type="text" class="form_container__form__gender">
+							<option value=undefined>Select your Blood Group</option>
+							<option value="O+">O+</option>
+							<option value="O-">O-</option>
+							<option value="A+">A+</option>
+							<option value="A-">A-</option>
+							<option value="B+">B+</option>
+							<option value="B-">B-</option>
+							<option value="AB+">AB+</option>
+							<option value="AB-">AB-</option>
+						</select>
+                                                                    </div>
+                                                                    <div class="edit_field">
+                                                                        <label for="timeZone">Time Zone</label>
+                                                                        <select name="timeZone" id="timezone" type="text" class="form_container__form__gender">
+							<option value=undefined>Select your Time Zone</option>
+							<option value="Kolkata">Asia/Kolkata</option>
+							<option value="Karachi">Asia/Karachi</option>
+							<option value="Bogota">America/Bogota</option>
+							<option value="Los Angles">America/Los Angles</option>
+						</select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="edit_address">
+                                                                    <div class="edit_field">
+                                                                        <label for="location">Location</label>
+                                                                        <input type="text" name="location" value="<%= user.location %>">
+                                                                    </div>
+                                                                    <div class="edit_field">
+                                                                        <label for="state">State</label>
+                                                                        <input type="text" name="state" value="<%= user.state %>">
+                                                                    </div>
+                                                                    <div class="edit_field">
+                                                                        <label for="country">Country</label>
+                                                                        <select name="country" id="country" type="text" class="form_container__form__gender">
+							<option value="India">India</option>
+							<option value="USA">USA</option>
+							<option value="Other">Sri Lanka</option>
+						</select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </section>
+                                                </div>
+                                        </div>
+                                        <div class="change_phone_number_form_container display_none">
+                                            <div class="form_container__form change_phone_number">
+                                                <h1 class="form_container__heading">Change Phone Number</h1>
+                                                <div class="form_container__form__input_field">
+                                                    <input name="phoneNumber" type="text" placeholder="Enter Mobile Number" maxlength="10" id="phoneNumber" class="form_container__form__phone_number" required>
+                                                </div>
+                                                <button onclick="sendOTP()" type="submit" class="form_container__form__submit">
+				<span class="form_container__form__submit__text">Verify</span>
+				<span class="form_container__form__submit__icon"><i class="fas fa-arrow-right"></i></span>
+			</button>
+                                                <span class="close-form"><i class="fas fa-times"></i></span>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            const menuItemActive = document.querySelectorAll(`a[href='/${window.location.href.split('/')[3]}']`);
+                                            menuItemActive[1].parentElement.parentElement.classList.add('menu-item--active');
+                                        </script>
+                                        <script>
+                                            var editNumber = document.getElementById('edit_phone_number');
+                                            let formContainer = document.querySelector('.change_phone_number');
+                                            let closeForm = document.querySelector('.close-form');
+                                            closeForm.addEventListener('click', function() {
+                                                formContainerContainer.style.display = 'none';
+                                            })
+                                            let formContainerContainer = document.querySelector('.change_phone_number_form_container');
+                                            editNumber.addEventListener('click', function() {
+                                                formContainerContainer.style.display = 'block';
+                                                console.log(formContainer);
+                                            });
+
+                                            var phoneNumber = document.querySelector('#phoneNumber');
+
+                                            var otpForm = `<h1 class="form_container__heading">OTP</h1>
+			<div class="form_container__form">
+				<h3 class="para-1 otp-message">We have sent One Time Password (OTP) to your registered Phone Number.</h3>
+				<div class="form_container__form__input_field">
+					<!-- <input name="otp" id="otp" type="text" class="form_container__form__otp" required onKeyPress="if(this.value.length==4) return false;" maxlength="4"> -->
+					<!-- <i class="fas fa-question-circle"></i> -->
+
+					<input class="otpField" name="otp_1" id="codeBox1" type="number" maxlength="1" onkeyup="onKeyUpEvent(1, event)" onfocus="onFocusEvent(1)" required>
+					<input class="otpField" name="otp_2" id="codeBox2" type="number" maxlength="1" onkeyup="onKeyUpEvent(2, event)" onfocus="onFocusEvent(2)" required>
+					<input class="otpField" name="otp_3" id="codeBox3" type="number" maxlength="1" onkeyup="onKeyUpEvent(3, event)" onfocus="onFocusEvent(3)" required>
+					<input class="otpField" name="otp_4" id="codeBox4" type="number" maxlength="1" onkeyup="onKeyUpEvent(4, event)" onfocus="onFocusEvent(4)" required>
+
+				</div>
+				<button onclick="verifyOTP()" type="submit" id="otpSubmit" class="form_container__form__submit">
+					<span class="form_container__form__submit__text">Submit</span>
+					<span class="form_container__form__submit__icon"><i class="fas fa-arrow-right"></i></span>
+				</button>
+				<span class="close-form"><i class="fas fa-times"></i></span>
+				</div>`
+                                            async function sendOTP() {
+                                                console.log(phoneNumber.value);
+                                                console.log(JSON.stringify(phoneNumber.value));
+                                                const res = await fetch('/change-phone-number', {
+                                                    method: 'POST',
+                                                    body: JSON.stringify({
+                                                        phoneNumber: phoneNumber.value
+                                                    }),
+                                                    headers: {
+                                                        "Content-type": "application/json; charset=UTF-8"
+                                                    }
+                                                });
+                                                console.log(res);
+                                                console.log(res.response);
+                                                const result = await res.json();
+                                                if (result.status === 'success') {
+                                                    formContainer.innerHTML = '';
+                                                    formContainer.innerHTML = otpForm;
+                                                    formContainer.style.height = '30rem';
+                                                }
+                                            }
+
+                                            async function verifyOTP() {
+                                                const otp_1 = document.querySelector(input[name = "otp_1"]);
+                                                const otp_2 = document.querySelector(input[name = "otp_2"]);
+                                                const otp_3 = document.querySelector(input[name = "otp_3"]);
+                                                const otp_4 = document.querySelector(input[name = "otp_4"]);
+                                                const res = await fetch('/change-phone-number-verify', {
+                                                    method: 'POST',
+                                                    body: JSON.stringify({
+                                                        otp_1: otp_1.value,
+                                                        otp_2: otp_2.value,
+                                                        otp_3: otp_3.value,
+                                                        otp_4: otp_4.value,
+                                                    }),
+                                                    headers: {
+                                                        "Content-type": "application/json; charset=UTF-8"
+                                                    }
+                                                });
+                                                const result = await res.json();
+                                                console.log(result);
+                                            }
+                                        </script>
+                                        <script>
+                                            const gender = document.querySelector('select[name="gender"]');
+                                            const country = document.querySelector('select[name="country"]');
+                                            const bloodGroup = document.querySelector('select[name="bloodGroup"]');
+                                            const timeZone = document.querySelector('select[name="timeZone"]');
+
+                                            function selectOptionFromBackend(optionsList, value) {
+                                                for (var i = 0; i < optionsList.options.length; i++) {
+                                                    option = optionsList.options[i];
+                                                    if (option.value == value) {
+                                                        console.log(value);
+                                                        option.selected = 'selected';
+                                                    }
+                                                }
+                                            }
+
+                                            selectOptionFromBackend(gender, '<%= user.gender %>');
+                                            selectOptionFromBackend(country, '<%= user.country %>');
+                                            selectOptionFromBackend(bloodGroup, '<%= user.bloodGroup %>');
+                                            selectOptionFromBackend(timeZone, '<%= user.timeZone %>');
+                                        </script>
+                                        <script src="./../dashboard.js"></script>
+                                        <script src="./../index.js"></script>
+                                        <script src="./../error.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+{
+    "name": "css",
+    "version": "1.0.0",
+    "description": "## This is the wiki file to read about the tasks",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "devStart": "nodemon src/server.js",
+        "start": "node src/server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@workspace.konfinity.com:html-css/css.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "browserify": "^16.5.1",
+        "lite-server": "^2.5.4",
+        "sass": "^1.25.0"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "bcrypt": "^5.0.1",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.0",
+        "dompurify": "^2.3.3",
+        "dotenv": "^8.6.0",
+        "ejs": "^3.0.1",
+        "express": "^4.17.1",
+        "express-session": "^1.17.0",
+        "isomorphic-dompurify": "^0.15.0",
+        "mongoose": "^5.9.6",
+        "multer": "^1.4.2",
+        "multer-gridfs-storage": "^5.0.2",
+        "nexmo": "^2.6.0",
+        "node-fetch": "^3.0.0",
+        "node-localstorage": "^2.1.5",
+        "nodemailer": "^6.7.0",
+        "nodemon": "^2.0.2",
+        "session-file-store": "^1.5.0",
+        "socket.io": "^4.3.0"
+    }
+}
